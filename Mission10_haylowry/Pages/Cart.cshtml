@@ -5,7 +5,9 @@
 
 <h2>CART</h2>
 
-<table class="table table-bordered table-striped">
+
+<!--Table Dark is one of the bootstrap changes-->
+<table class="table table-bordered table-striped table-dark">
     <thead>
         <tr>
             <th>Book</th>
@@ -16,20 +18,22 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var i in Model.cart.Items)
-            {
-                <tr>
-                    <td>@i.Book.Title</td>
-                    <td>@i.Quantity</td>
-                    <td>@i.Book.Price</td>
-                    <td>@(i.Book.Price * @i.Quantity)</td>
-                </tr>
-            }
+        @foreach (var i in Model.cart.Items)
+        {
+            <tr>
+                <td>@i.Book.Title</td>
+                <td>@i.Quantity</td>
+                <td>@i.Book.Price</td>
+                <td>@(i.Book.Price * @i.Quantity)</td>
+            </tr>
+        }
     </tbody>
     <tfoot>
         <td colspan="3">Total:</td>
         <td>@Model.cart.CalcTotal().ToString("c")</td>
     </tfoot>
+
+
 </table>
 
 <div>

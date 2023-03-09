@@ -12,12 +12,16 @@
             </span>
         </h4>
     </div>
-    <div class="card-text p-1"><b>Author: </b>@Model.Author</div>
-    <div class="card-text p-1"><b>Publisher: </b>@Model.Publisher</div>
-    <div class="card-text p-1"><b>ISBN: </b>@Model.Isbn</div>
-    <div class="card-text p-1"><b>Classification: </b>@Model.Classification</div>
-    <div class="card-text p-1"><b>Category: </b>@Model.Category</div>
-    <div class="card-text p-1"><b>PageCount: </b>@Model.PageCount</div>
+    <!--Bootstrap change to List Group-->
+    <ul class="list-group" style="width: 50%;">
+        <li class="list-group-item"><b>Author: </b>@Model.Author</li>
+        <li class="list-group-item"><b>Publisher: </b>@Model.Publisher</li>
+        <li class="list-group-item"><b>ISBN: </b>@Model.Isbn</li>
+        <li class="list-group-item"><b>Classification: </b>@Model.Classification</li>
+        <li class="list-group-item"><b>Category: </b>@Model.Category</li>
+        <li class="list-group-item"><b>PageCount: </b>@Model.PageCount</li>
+    </ul>
+    
 
     <form method="post" asp-page="/Cart">
         <span class="card-text">
