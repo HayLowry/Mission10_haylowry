@@ -1,0 +1,37 @@
+﻿@page
+@model Mission10_haylowry.Pages.CartModel
+@{
+}
+
+<h2>CART</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Subtotal</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model.cart.Items)
+            {
+                <tr>
+                    <td>@i.Book.Title</td>
+                    <td>@i.Quantity</td>
+                    <td>@i.Book.Price</td>
+                    <td>@(i.Book.Price * @i.Quantity)</td>
+                </tr>
+            }
+    </tbody>
+    <tfoot>
+        <td colspan="3">Total:</td>
+        <td>@Model.cart.CalcTotal().ToString("c")</td>
+    </tfoot>
+</table>
+
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>

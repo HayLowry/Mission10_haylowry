@@ -17,7 +17,7 @@ namespace Mission10_haylowry.Controllers
         }
         public IActionResult Index(string bookCategory, int pageNum = 1)
         {
-            int pageSize = 10;
+            int pageSize = 5;
 
             var models = new BooksViewModel
             {
