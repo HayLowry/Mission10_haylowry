@@ -15,20 +15,21 @@ namespace Mission10_haylowry.Controllers
         {
             Repo = temp;
         }
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string bookCategory, int pageNum = 1)
         {
             int pageSize = 10;
 
             var models = new BooksViewModel
             {
                 Books = Repo.Books
+                .Where(x => x.Category == bookCategory || bookCategory == null)
                 .OrderBy(x => x.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = Repo.Books.Count(),
+                    TotalNumBooks = (bookCategory == null ? Repo.Books.Count() : Repo.Books.Where(x => x.Category == bookCategory).Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }

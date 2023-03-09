@@ -49,9 +49,19 @@ namespace Mission10_haylowry
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "CategoryPage",
+                    pattern: "{bookCategory}/Page{pageNum}",
+                    defaults: new { controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
                     name: "Paging",
                     pattern: "Page{pageNum}",
-                    defaults: new { controller = "Home", action = "Index"});
+                    defaults: new { controller = "Home", action = "Index", pageNum = 1 });
+
+                endpoints.MapControllerRoute(
+                    name: "Category",
+                    pattern: "{bookCategory}",
+                    defaults: new { controller = "Home", action = "Index", pageNum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
             });
